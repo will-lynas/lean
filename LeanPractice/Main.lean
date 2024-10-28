@@ -208,3 +208,12 @@ example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := by
   calc
     _  = |(a - b) + (b - c)| := by ring
     _  ≤ _ := abs_add_le (a-b) (b-c)
+
+
+-- 012
+-- `by exact` is an antipattern and should be removed
+
+-- We can rewrite 011a:
+example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := abs_sub_le a b c
+
+-- But this is more relevant to calc blocks
