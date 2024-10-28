@@ -131,4 +131,10 @@ example (a b c: ℕ) (h1: a ≤ b) (h2: b ≤ c): a ≤ c := by
   exact h1
   exact h2
 
+-- 006d
+example (a b c: ℕ) (h1: a < b) (h2: b < c): a < c := by
+  trans b
+  exact h1
+  exact h2
+
 end q006
