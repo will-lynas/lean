@@ -102,3 +102,19 @@ end q004
 /-
   Multi line comments start with `/-` and end with `-/` like this
 -/
+
+
+-- 006
+-- `trans`
+section q006
+
+-- 006a
+-- `≃` is typed `equiv`
+example (α β γ: Type) (h1: α ≃ β) (h2: β ≃ γ): α ≃ γ := by
+  -- Give `trans` the thing you want to split on
+  trans β
+  -- Now there are two goals
+  exact h1
+  exact h2
+
+end q006
