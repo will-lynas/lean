@@ -76,7 +76,7 @@ end q003
 
 -- 004
 -- `section`s let you make a scope
--- If you declare a variable inside a `section`, when the section ends it dissapears
+-- If you declare a variable inside a `section`, when the section ends it disappears
 -- This is useful for defining variables for a set of questions, and not polluting the rest of the
 -- file
 
