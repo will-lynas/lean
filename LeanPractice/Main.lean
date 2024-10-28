@@ -74,12 +74,11 @@ example (p: P): R := by
 end q003
 
 
-/-
-004
-`section`s let you make a scope.
-If you declare a variable inside a `section`, when the section ends it disappears.
-This is useful for defining variables for a set of questions, without polluting the rest of the file.
--/
+-- 004
+-- `section`s let you make a scope
+-- If you declare a variable inside a `section`, when the section ends it disappears
+-- This is useful for defining variables for a set of questions, without polluting the rest of the
+-- file
 
 section q004
 
