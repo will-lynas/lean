@@ -140,3 +140,24 @@ example (a b c: ℕ) (h1: a < b) (h2: b < c): a < c := by
 -- If we have a mix of lt and le, we have to use something else ...
 
 end q006
+
+
+-- 007
+
+-- You can use these two, but trans works too:
+
+#check le_trans
+-- a ≤ b → b ≤ c → a ≤ c
+#check lt_trans
+-- a < b → b < c → a < c
+
+-- Notice how these next ones are named
+-- lt means <
+-- le means ≤
+-- Then it goes <goal>_of_<first>_of_<second>
+-- These ones can't be replaced with trans
+
+#check lt_of_le_of_lt
+-- a < b → b < c → a < c
+#check lt_of_lt_of_le
+-- a < b → b ≤ c → a < c
