@@ -111,6 +111,7 @@ section q006
 -- 006a
 -- `≃` is typed `equiv`
 -- Works on any equivalence relation
+-- And more ...
 example (α β γ: Type) (h1: α ≃ β) (h2: β ≃ γ): α ≃ γ := by
   -- Give `trans` the thing you want to split on
   trans β
@@ -120,6 +121,12 @@ example (α β γ: Type) (h1: α ≃ β) (h2: β ≃ γ): α ≃ γ := by
 
 -- 006b
 example (a b c: ℕ) (h1: a = b) (h2: b = c): a = c := by
+  trans b
+  exact h1
+  exact h2
+
+-- 006c
+example (a b c: ℕ) (h1: a ≤ b) (h2: b ≤ c): a ≤ c := by
   trans b
   exact h1
   exact h2
