@@ -224,9 +224,15 @@ example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := abs_sub_le a b c
 -- `refine` is `exact` with "holes"
 -- See https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2023/Part_C/tactics/refine.html
 -- The above link is for lean3, so there are some slight differences you should be aware of
+section q013
+
+variable (P Q R : Prop)
+variable (p : P)
+variable (q : Q)
+variable (r : R)
 
 -- 013a
-example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
+example: P ∧ Q := by
   -- Here we fill in the left part of the ∧ and turn the right into a new goal
   -- Use `?_` for any "holes"
   -- IMPORTANT: in lean3 you would write `_`, but now you write `?_`
@@ -235,13 +241,13 @@ example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
 
 -- 013b
 -- 013a is obviously contrived. We could've just used `exact` immediately
-example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
+example: P ∧ Q := by
   exact ⟨p, q⟩
 
 -- 013c
 -- `refine` is helpful when you would otherwise have a constructor with one arm that is just `exact`
 -- Here's the bad way
-example (P Q : Prop) (p : P) (q : Q) (r: R): P ∧ (Q ∧ R) := by
+example: P ∧ (Q ∧ R) := by
   -- (Could've done this all in one `exact` but this is to demo)
   constructor
   · exact p
@@ -250,6 +256,8 @@ example (P Q : Prop) (p : P) (q : Q) (r: R): P ∧ (Q ∧ R) := by
 -- 013d
 -- ... and here's a better way with `refine`
 -- No nesting!
-example (P Q : Prop) (p : P) (q : Q) (r: R): P ∧ (Q ∧ R) := by
+example: P ∧ (Q ∧ R) := by
   refine ⟨p, ?_⟩
   exact ⟨q, r⟩
+
+end q013
