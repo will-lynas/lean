@@ -290,4 +290,12 @@ example: P ∧ (Q ∧ R) := by
   exact q
   exact r
 
+-- 013f
+-- A less contrived example
+example (S T U: Prop) (t: T): S → S ∧ (U → (T ∧ U)) := by
+  intro s
+  refine ⟨s, ?_⟩
+  intro u
+  exact ⟨t, u⟩
+
 end q013
