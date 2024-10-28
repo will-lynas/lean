@@ -284,3 +284,6 @@ example: P ∧ (Q ∧ R) := by
   exact r
 
 end q013
+
+
+-- TODO: variable shadowing
