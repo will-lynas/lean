@@ -236,4 +236,4 @@ example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
 -- 013b
 -- 013a is obviously contrived. We could've just used `exact` immediately
 example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
-  refine ⟨p, q⟩
+  exact ⟨p, q⟩
