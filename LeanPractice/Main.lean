@@ -237,3 +237,19 @@ example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
 -- 013a is obviously contrived. We could've just used `exact` immediately
 example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
   exact ⟨p, q⟩
+
+-- 013c
+-- `refine` is helpful when you would otherwise have a constructor with one arm that is just `exact`
+-- Here's the bad way
+example (P Q : Prop) (p : P) (q : Q) (r: R): P ∧ (Q ∧ R) := by
+  -- (Could've done this all in one `exact` but this is to demo)
+  constructor
+  · exact p
+  · exact ⟨q, r⟩
+
+-- 013d
+-- ... and here's a better way with `refine`
+-- No nesting!
+example (P Q : Prop) (p : P) (q : Q) (r: R): P ∧ (Q ∧ R) := by
+  refine ⟨p, ?_⟩
+  exact ⟨q, r⟩
