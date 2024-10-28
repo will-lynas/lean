@@ -161,3 +161,23 @@ end q006
 -- a < b → b < c → a < c
 #check lt_of_lt_of_le
 -- a < b → b ≤ c → a < c
+
+
+-- 008
+-- This one comes up a fair amount in analysis
+
+-- 008a
+-- This works for real numbers
+example (a b : ℝ) (h: a < b) : a ≤ b := by
+  exact le_of_lt h
+
+-- 008b
+-- ... and obviously for natural numbers too
+example (a b : ℕ) (h: a < b) : a ≤ b := by
+  exact le_of_lt h
+
+-- 008c
+-- For natural numbers, there's also another weird way which exact? finds
+-- a < b → a.succ ≤ b → a ≤ b
+example (a b : ℕ) (h: a < b) : a ≤ b := by
+  exact Nat.le_of_succ_le h
