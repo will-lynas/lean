@@ -40,3 +40,35 @@ example (h: ∀a, P a) : P b := by
   exact h
 
 end q002
+
+
+-- 003
+-- Specialize can be used both for `∀` and for implies
+-- See 002 for `∀` usage
+section q003
+
+variable (P Q R: Prop)
+
+variable (h1: P -> Q)
+variable (h2: Q -> R)
+
+-- 003a
+-- Here is an example of bringing a goal backwards using `apply`
+example (p: P): R := by
+  apply h2
+  apply h1
+  exact p
+
+-- 003b
+-- Or more compactly ...
+example (p: P): R := by
+  exact h2 (h1 p)
+
+-- 003c
+-- Instead, you can bring the hypotheses forwards to meet the goal using `specialize`
+example (p: P): R := by
+  specialize h1 p
+  specialize h2 h1
+  exact h2
+
+end q003
