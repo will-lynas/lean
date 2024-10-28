@@ -8,7 +8,11 @@ example: 1 + 1 = 2 := by
 -- 002
 section q002
 
-example (A: Type) (P : A -> Prop) (b: A) (h: ∀a, P a) : P b := by
+variable (A: Type)
+variable (P: A -> Prop)
+variable (b: A)
+
+example (h: ∀a, P a) : P b := by
   exact h b
 
 end q002
