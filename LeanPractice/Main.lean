@@ -7,6 +7,7 @@ example: 1 + 1 = 2 := by
 
 
 -- 002
+-- This explores the different ways to use ∀
 section q002
 
 variable (A: Type)
