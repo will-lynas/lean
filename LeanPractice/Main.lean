@@ -193,3 +193,18 @@ example (a: ℝ) (h: a > 0): |a| = a := by
 -- Triangle inequality
 example (a b: ℝ): |a + b| ≤ |a| + |b| := by
   exact abs_add_le a b
+
+-- 011
+-- Another kind of triangle inequality
+
+-- 011a
+-- Mathlib has a way
+example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := by
+  exact abs_sub_le a b c
+
+-- 011b
+-- It's also fun to try it yourself
+example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := by
+  calc
+    _  = |(a - b) + (b - c)| := by ring
+    _  ≤ _ := abs_add_le (a-b) (b-c)
