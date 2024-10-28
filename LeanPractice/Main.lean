@@ -217,3 +217,18 @@ example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := by
 example (a b c: ℝ): |a - c| ≤ |a - b| + |b - c| := abs_sub_le a b c
 
 -- But this is more relevant to calc blocks
+
+
+-- 013
+-- `refine`
+-- `refine` is `exact` with "holes"
+-- See https://www.ma.imperial.ac.uk/~buzzard/xena/formalising-mathematics-2023/Part_C/tactics/refine.html
+-- The above link is for lean3, so there are some slight differences you should be aware of
+
+-- 013a
+example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
+  -- Here we fill in the left part of the ∧ and turn the right into a new goal
+  -- Use `?_` for any "holes"
+  -- IMPORTANT: in lean3 you would write `_`, but now you write `?_`
+  refine ⟨p, ?_⟩
+  exact q
