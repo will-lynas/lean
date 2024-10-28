@@ -72,3 +72,23 @@ example (p: P): R := by
   exact h2
 
 end q003
+
+
+-- 004
+-- `section`s let you make a scope
+-- If you declare a variable inside a `section`, when the section ends it dissapears
+-- This is useful for defining variables for a set of questions, and not polluting the rest of the
+-- file
+
+section q004
+
+-- P is not defined yet
+variable (P: Prop)
+variable (p: P)
+
+-- P is now defined and can be used
+example: P := by
+  exact p
+
+end q004
+-- Now P has gone out of scope and can't be seen / used
