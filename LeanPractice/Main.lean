@@ -1,5 +1,12 @@
 import Mathlib.Tactic
 
+-- TODO:
+-- variable shadowing
+-- calc blocks inside have
+-- the purpose of named goals
+-- dot syntax, curly bracket syntax
+
+
 -- 001
 -- Let's first check that we can access Mathlib tactics
 example: 1 + 1 = 2 := by
@@ -284,10 +291,3 @@ example: P ∧ (Q ∧ R) := by
   exact r
 
 end q013
-
-
--- TODO:
--- variable shadowing
--- calc blocks inside have
--- the purpose of named goals
--- dot syntax, curly bracket syntax
