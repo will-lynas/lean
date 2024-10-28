@@ -1,6 +1,7 @@
 import Mathlib.Tactic
 
 -- 001
+-- Let's first check that we can access Mathlib tactics
 example: 1 + 1 = 2 := by
   ring
 
