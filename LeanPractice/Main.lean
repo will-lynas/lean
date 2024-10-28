@@ -286,4 +286,8 @@ example: P ∧ (Q ∧ R) := by
 end q013
 
 
--- TODO: variable shadowing
+-- TODO:
+-- variable shadowing
+-- calc blocks inside have
+-- the purpose of named goals
+-- dot syntax, curly bracket syntax
