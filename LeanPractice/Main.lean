@@ -232,3 +232,8 @@ example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
   -- IMPORTANT: in lean3 you would write `_`, but now you write `?_`
   refine ⟨p, ?_⟩
   exact q
+
+-- 013b
+-- 013a is obviously contrived. We could've just used `exact` immediately
+example (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
+  refine ⟨p, q⟩
