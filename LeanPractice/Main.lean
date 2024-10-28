@@ -260,4 +260,27 @@ example: P ∧ (Q ∧ R) := by
   refine ⟨p, ?_⟩
   exact ⟨q, r⟩
 
+-- 013e
+-- You can also name the subgoals that get created
+example: P ∧ (Q ∧ R) := by
+  refine ⟨p, ⟨?h1, ?h2⟩⟩
+  -- Now the inspector looks like this:
+  /-
+  case h1
+  P Q R : Prop
+  p : P
+  q : Q
+  r : R
+  ⊢ Q
+
+  case h2
+  P Q R : Prop
+  p : P
+  q : Q
+  r : R
+  ⊢ R
+  -/
+  exact q
+  exact r
+
 end q013
