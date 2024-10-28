@@ -92,3 +92,13 @@ example: P := by
 
 end q004
 -- Now P has gone out of scope and can't be seen / used
+
+
+-- 005
+-- Comments
+
+-- Single line comments start with `--` like this
+
+/-
+  Multi line comments start with `/-` and end with `-/` like this
+-/
