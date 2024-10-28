@@ -181,3 +181,9 @@ example (a b : ℕ) (h: a < b) : a ≤ b := by
 -- a < b → a.succ ≤ b → a ≤ b
 example (a b : ℕ) (h: a < b) : a ≤ b := by
   exact Nat.le_of_succ_le h
+
+
+-- 009
+-- This comes up in analysis too
+example (a: ℝ) (h: a > 0): |a| = a := by
+  exact abs_of_pos h
