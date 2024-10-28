@@ -117,4 +117,10 @@ example (α β γ: Type) (h1: α ≃ β) (h2: β ≃ γ): α ≃ γ := by
   exact h1
   exact h2
 
+-- 006b
+example (a b c: ℕ) (h1: a = b) (h2: b = c): a = c := by
+  trans b
+  exact h1
+  exact h2
+
 end q006
