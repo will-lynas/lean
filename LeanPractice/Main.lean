@@ -137,4 +137,6 @@ example (a b c: ℕ) (h1: a < b) (h2: b < c): a < c := by
   exact h1
   exact h2
 
+-- If we have a mix of lt and le, we have to use something else ...
+
 end q006
