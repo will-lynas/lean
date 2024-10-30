@@ -324,8 +324,26 @@ example (f: ℝ → ℝ): UCts f → Cts f := by
 
 -- 014b
 -- Continuous does not imply uniformly continuous
-example (f: ℝ → ℝ): ¬(Cts f → UCts f) := by
-  by_contra h
-  sorry
+example : ¬(∀f, Cts f → UCts f) := by
+  push_neg
+  use fun x => x^2
+  constructor
+  ·
+    sorry
+  · intro h
+    specialize h 1 (by norm_num)
+    obtain ⟨δ, hδ, h⟩ := h
+    dsimp at h
+    specialize h (2/δ + δ/2) (2/δ)
+    norm_num at h
+    have := calc
+      |δ/2| = δ/2 := by
+        simp only [abs_eq_self]
+        apply div_nonneg
+        exact le_of_lt hδ
+        norm_num
+      _ < δ := by linarith
+    specialize h this
+    sorry
 
 end q014
