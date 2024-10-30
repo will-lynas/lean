@@ -322,4 +322,10 @@ example (f: ℝ → ℝ): UCts f → Cts f := by
   specialize h x a
   exact h
 
+-- 014b
+-- Continuous does not imply uniformly continuous
+example (f: ℝ → ℝ): ¬(Cts f → UCts f) := by
+  by_contra h
+  sorry
+
 end q014
