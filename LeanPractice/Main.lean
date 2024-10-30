@@ -292,3 +292,34 @@ example (S T U: Prop) (t: T): S → S ∧ (U → (T ∧ U)) := by
   exact ⟨t, u⟩
 
 end q013
+
+
+-- 014
+
+section q014
+
+-- `f` is continuous at `a`
+def CtsAt (f : ℝ → ℝ) (a: ℝ): Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀x, |x - a| < δ → |f x - f a| < ε
+
+-- `f` is continuous iff `f` is continuous at `a` for all `a`
+def Cts (f: ℝ -> ℝ): Prop :=
+  ∀a, CtsAt f a
+
+-- `f` is uniformly continuous
+-- Note order of quantifiers
+def UCts (f: ℝ → ℝ): Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ x y, |x - y| < δ → |f x - f y| < ε
+
+-- 014a
+-- Uniformly continuous implies continuous
+example (f: ℝ → ℝ): UCts f → Cts f := by
+  intro h a ε hε
+  specialize h ε hε
+  obtain ⟨δ, hδ, h⟩ := h
+  use δ, hδ
+  intro x
+  specialize h x a
+  exact h
+
+end q014
